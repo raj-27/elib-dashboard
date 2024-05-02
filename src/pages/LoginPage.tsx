@@ -9,19 +9,45 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import toast from 'react-hot-toast';
+import { login } from '@/http/api';
+import { useMutation } from '@tanstack/react-query';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
+
+    const mutation = useMutation({
+        mutationFn: login,
+        onSuccess: () => {
+            toast.success('Login Succesfull', {
+                duration: 2500,
+            });
+            navigate('/dashboard/home');
+        },
+        onError: (err) => {
+            toast.error(err.message, {
+                duration: 2500,
+            });
+        },
+    });
 
     const handleSubmit = async () => {
         const email = emailRef.current?.value;
         const password = passwordRef.current?.value;
         if (!email || !password) {
-            console.log('Field is missing');
+            toast.error('Field is missing!!', {
+                duration: 3000,
+            });
         }
+        if (email && password) {
+            mutation.mutate({ email, password });
+        }
+
+        console.log('hello');
     };
 
     return (
