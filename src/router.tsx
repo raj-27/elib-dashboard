@@ -5,7 +5,7 @@ import AuthLayout from './Layouts/AuthLayout';
 
 export const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/dashboard',
         element: <DashboardLayout />,
         children: [
             {
