@@ -46,13 +46,13 @@ const DashboardLayout = () => {
                     <div className="flex-1">
                         <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
                             <Link
-                                to="/home"
+                                to="/dashboard/home"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
                                 <Home className="h-4 w-4" />
                                 Home
                             </Link>
                             <Link
-                                to="/books"
+                                to="/dashboard/books"
                                 className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
                                 <Package className="h-4 w-4" />
                                 Books
@@ -84,14 +84,14 @@ const DashboardLayout = () => {
                                     <span className="sr-only">Elib Book</span>
                                 </Link>
                                 <Link
-                                    to="/home"
+                                    to="/dashboard/home"
                                     className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
                                     <Home className="h-5 w-5" />
                                     Home
                                 </Link>
 
                                 <Link
-                                    to="/books"
+                                    to="/dashboard/books"
                                     className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
                                     <Package className="h-5 w-5" />
                                     Books
