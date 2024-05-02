@@ -28,7 +28,7 @@ const DashboardLayout = () => {
                 <div className="flex h-full max-h-screen flex-col gap-2">
                     <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
                         <Link
-                            to="/"
+                            to="/dashboard/home"
                             className="flex items-center gap-2 font-semibold">
                             <Package2 className="h-6 w-6" />
                             <span className="">Elib Book</span>
@@ -78,7 +78,7 @@ const DashboardLayout = () => {
                         <SheetContent side="left" className="flex flex-col">
                             <nav className="grid gap-2 text-lg font-medium">
                                 <Link
-                                    to="#"
+                                    to="/dashboard/home"
                                     className="flex items-center gap-2 text-lg font-semibold">
                                     <Package2 className="h-6 w-6" />
                                     <span className="sr-only">Elib Book</span>
@@ -89,7 +89,6 @@ const DashboardLayout = () => {
                                     <Home className="h-5 w-5" />
                                     Home
                                 </Link>
-
                                 <Link
                                     to="/dashboard/books"
                                     className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
