@@ -30,8 +30,7 @@ const RegisterPage = () => {
             navigate('/dashboard/home');
         },
         onError: (err) => {
-            const message = err?.response?.data?.message;
-            toast.error(message || err.message, {
+            toast.error(err.message, {
                 duration: 2500,
             });
         },
