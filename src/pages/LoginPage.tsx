@@ -14,6 +14,7 @@ import { login } from '@/http/api';
 import { useMutation } from '@tanstack/react-query';
 import { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { LoaderCircle } from 'lucide-react';
 
 const LoginPage = () => {
     const emailRef = useRef<HTMLInputElement>(null);
@@ -82,8 +83,16 @@ const LoginPage = () => {
                 </CardContent>
                 <CardFooter>
                     <div className="w-full">
-                        <Button className="w-full" onClick={handleSubmit}>
-                            Sign in
+                        <Button
+                            className="w-full"
+                            onClick={handleSubmit}
+                            disabled={mutation.isPending}>
+                            {mutation.isPending && (
+                                <LoaderCircle className="animate-spin" />
+                            )}
+                            <span className={`${mutation.isPending && 'ml-2'}`}>
+                                Sign in
+                            </span>
                         </Button>
                         <div className="mt-4 text-center text-sm">
                             Don't have an account?
