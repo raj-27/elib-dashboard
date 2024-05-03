@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import {
     BookPage,
     CreateBook,
@@ -10,6 +10,10 @@ import DashboardLayout from './Layouts/DashboardLayout';
 import AuthLayout from './Layouts/AuthLayout';
 
 export const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Navigate to="/dashboard/home" replace />,
+    },
     {
         path: '/dashboard',
         element: <DashboardLayout />,
