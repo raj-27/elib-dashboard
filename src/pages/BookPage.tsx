@@ -35,7 +35,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { MoreHorizontal } from 'lucide-react';
+import { CirclePlus, MoreHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Book } from '@/type';
@@ -48,19 +48,27 @@ const BookPage = () => {
     });
     return (
         <div>
-            <Breadcrumb>
-                <BreadcrumbList>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink>
-                            <Link to={'/dashboard/home'}>Home</Link>
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                        <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-                    </BreadcrumbItem>
-                </BreadcrumbList>
-            </Breadcrumb>
+            <div className="flex justify-between items-center">
+                <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink>
+                                <Link to={'/dashboard/home'}>Home</Link>
+                            </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
+                <Link to={'/dashboard/books/create'}>
+                    <Button variant={'outline'}>
+                        <CirclePlus size={18} />
+                        <span className="ml-2">Add Book</span>
+                    </Button>
+                </Link>
+            </div>
             <Card x-chunk="dashboard-06-chunk-0" className="mt-6">
                 <CardHeader>
                     <CardTitle>Products</CardTitle>
