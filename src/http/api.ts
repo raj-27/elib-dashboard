@@ -1,4 +1,6 @@
 import { config } from '@/config/config';
+import useTokenStore from '@/store';
+import { Book } from '@/type';
 import axios from 'axios';
 
 /* The `const api = axios.create({})` statement is creating an instance of Axios with specific
@@ -13,6 +15,15 @@ const api = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
+});
+
+api.interceptors.request.use((config) => {
+    const token = useTokenStore.getState().token;
+    console.log(token);
+    if (token) {
+        config.headers.Authorization = token;
+    }
+    return config;
 });
 
 /**
@@ -46,3 +57,21 @@ export const register = async (data: {
  * The function `getBooks` makes an asynchronous API call to retrieve a list of books.
  */
 export const getBooks = async () => api.get('/api/books');
+
+/**
+ * The function createBook sends a POST request to the '/api/books' endpoint with the provided data
+ * using multipart form data.
+ * @param data - The `data` parameter in the `createBook` function likely contains the information
+ * needed to create a new book entry. This could include details such as the book title, author, genre,
+ * publication date, and any other relevant information about the book that needs to be stored in the
+ * database. This data
+ * @returns The `createBook` function is returning a promise that makes a POST request to the
+ * '/api/books' endpoint with the provided data and headers.
+ */
+export const createBook = async (data) => {
+    return api.post('/api/books', data, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+};

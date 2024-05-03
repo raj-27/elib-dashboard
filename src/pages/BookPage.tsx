@@ -58,7 +58,7 @@ const BookPage = () => {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+                            <BreadcrumbPage>Books</BreadcrumbPage>
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
@@ -97,8 +97,8 @@ const BookPage = () => {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {data?.data?.map((book: Book) => (
-                                <TableRow>
+                            {data?.data?.map((book: Book, index: number) => (
+                                <TableRow key={Math.random() + index}>
                                     <TableCell className="hidden sm:table-cell">
                                         <img
                                             alt={book.title}
