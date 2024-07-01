@@ -157,7 +157,6 @@ const CreateBook = () => {
                                         Description
                                     </Label>
                                     <Textarea
-                                        ref={descriptionRef}
                                         id="description"
                                         className="min-h-32"
                                     />

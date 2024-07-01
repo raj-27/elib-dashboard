@@ -12,9 +12,7 @@ import {
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
-    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
@@ -41,7 +39,7 @@ import { Badge } from '@/components/ui/badge';
 import { Book } from '@/type';
 
 const BookPage = () => {
-    const { data, isError, isLoading } = useQuery({
+    const { data } = useQuery({
         queryKey: ['books'],
         queryFn: getBooks,
         staleTime: 10000,

@@ -1,6 +1,5 @@
 import { config } from '@/config/config';
 import useTokenStore from '@/store';
-import { Book } from '@/type';
 import axios from 'axios';
 
 /* The `const api = axios.create({})` statement is creating an instance of Axios with specific
@@ -68,7 +67,7 @@ export const getBooks = async () => api.get('/api/books');
  * @returns The `createBook` function is returning a promise that makes a POST request to the
  * '/api/books' endpoint with the provided data and headers.
  */
-export const createBook = async (data) => {
+export const createBook = async (data: any) => {
     return api.post('/api/books', data, {
         headers: {
             'Content-Type': 'multipart/form-data',
